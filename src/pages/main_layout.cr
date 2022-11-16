@@ -28,6 +28,7 @@ abstract class MainLayout
 
     html lang: "en" do
       mount Shared::LayoutHead, page_title: page_title
+      mount Shared::Navbar
 
       body do
         mount Shared::FlashMessages, context.flash

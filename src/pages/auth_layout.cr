@@ -15,12 +15,17 @@ abstract class AuthLayout
   def render
     html_doctype
 
-    html lang: "en" do
+    html class: "h-100", lang: "en" do
       mount Shared::LayoutHead, page_title: page_title
 
-      body do
+      mount Shared::Navbar
+      body class: "d-flex flex-column h-100" do
         mount Shared::FlashMessages, context.flash
-        content
+        main class: "flex-shrink-0" do
+          content
+        end
+
+        mount Shared::Footer
       end
     end
   end
